@@ -1,0 +1,3 @@
+<!doctype html><html><head><title>FitBuddy Admin</title><link rel="stylesheet" href="/static/style.css"></head><body><div class="box wide"><h1>All Users</h1>
+{% for u in users %}<div class="card"><h2>{{u.username}} ({{u.user_id}})</h2><p>Age {{u.age}} | Weight {{u.weight}} kg | Goal {{u.goal}} | Intensity {{u.intensity}}</p>
+{% for p in plans_by_user.get(u.user_id,[]) %}<h3>Original Plan</h3><pre>{{p.original_plan}}</pre>{% if p.updated_plan %}<h3>Updated Plan</h3><pre>{{p.updated_plan}}</pre><p>Feedback: {{p.feedback}}</p>{% endif %}{% endfor %}</div>{% endfor %}<a href="/">Back</a></div></body></html>
